@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="22K gold price tracker with historical IBJA benchmark data.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Gold Price 22K</title>
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">INDIA • 916 / 22K</div>
+      <h1>Gold Price 22K</h1>
+    </div>
+    <button id="refreshBtn" class="icon-btn" type="button" aria-label="Refresh data">↻</button>
+  </header>
+
+  <section class="hero">
+    <div class="label">22K GOLD PRICE</div>
+    <div id="price8" class="price">₹—</div>
+    <div class="unit">per 8 grams</div>
+    <div id="change" class="change">—</div>
+    <div id="updated" class="updated">Loading…</div>
+  </section>
+
+  <section class="grid">
+    <div class="card"><span>Per gram</span><strong id="price1">₹—</strong></div>
+    <div class="card"><span>Per 10 grams</span><strong id="price10">₹—</strong></div>
+    <div class="card"><span>AM</span><strong id="am">₹—</strong></div>
+    <div class="card"><span>PM</span><strong id="pm">₹—</strong></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Price history</h2>
+        <p id="rangeSummary">No data loaded</p>
+      </div>
+      <select id="range" aria-label="History range">
+        <option value="30">1M</option>
+        <option value="180">6M</option>
+        <option value="365">1Y</option>
+        <option value="1095">3Y</option>
+        <option value="all">All</option>
+      </select>
+    </div>
+    <div class="chart-wrap">
+      <svg id="chart" viewBox="0 0 720 300" role="img" aria-label="22K gold historical price chart"></svg>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><span>Period high</span><strong id="high">₹—</strong></div>
+    <div><span>Period low</span><strong id="low">₹—</strong></div>
+    <div><span>Average</span><strong id="avg">₹—</strong></div>
+    <div><span>Records</span><strong id="records">—</strong></div>
+  </section>
+
+  <section class="source">
+    <strong>Source</strong>
+    <p>IBJA 916 benchmark • rates are exclusive of GST and quoted per 10g. The 8g value is calculated by weight.</p>
+    <p id="status" aria-live="polite">Ready.</p>
+  </section>
+</main>
+<script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js").catch(()=>{});
+</script>
+</body>
+</html>
